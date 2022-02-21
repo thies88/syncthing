@@ -1,5 +1,5 @@
 #Build stage
-FROM 1-base-alpine as buildstage
+FROM 1-base-alpine:3.14 as buildstage
 
 # build variables
 ARG SYNCTHING_RELEASE
@@ -39,7 +39,7 @@ echo "**** fetch source code ****" && \
 	build syncthing
 
 # Runtime stage
-FROM 1-base-alpine
+FROM 1-base-alpine:3.14
 
 ARG BUILD_DATE
 ARG VERSION
